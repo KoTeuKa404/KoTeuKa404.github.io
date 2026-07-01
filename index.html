@@ -3,89 +3,361 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Max Gadada — Python Backend & Automation Developer. Django, DRF, FastAPI, Telegram bots, CRM workflows, parsers, Dockerized services and business automation." />
   <title>Max Gadada — Python Backend & Automation Developer</title>
 
   <style>
+    :root {
+      --bg: #07111f;
+      --panel: #0f1b2d;
+      --panel-2: #111f33;
+      --text: #e5edf8;
+      --muted: #94a3b8;
+      --soft: #cbd5e1;
+      --line: rgba(148, 163, 184, 0.22);
+      --accent: #38bdf8;
+      --accent-2: #22c55e;
+      --accent-3: #a78bfa;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+    }
+
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
-      line-height: 1.6;
-    }
-
-    main {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 48px 20px;
-    }
-
-    .hero {
-      padding: 60px 0;
-    }
-
-    .tag {
-      color: #38bdf8;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-
-    h1 {
-      font-size: 48px;
-      margin: 0 0 12px;
-    }
-
-    h2 {
-      margin-top: 48px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid #334155;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 34rem),
+        radial-gradient(circle at top right, rgba(167, 139, 250, 0.14), transparent 30rem),
+        linear-gradient(180deg, #07111f 0%, #0a1220 48%, #060b14 100%);
+      line-height: 1.65;
     }
 
     a {
-      color: #38bdf8;
+      color: inherit;
       text-decoration: none;
     }
 
-    .links {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 24px;
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
     }
 
-    .links a {
-      border: 1px solid #334155;
-      padding: 10px 14px;
-      border-radius: 10px;
-      background: #1e293b;
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 17, 31, 0.78);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: #06111f;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 12px 40px rgba(56, 189, 248, 0.25);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 92px 0 56px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #b8e9ff;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-2);
+      box-shadow: 0 0 20px var(--accent-2);
+    }
+
+    h1 {
+      margin: 22px 0 16px;
+      max-width: 850px;
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 0.98;
+      letter-spacing: -0.07em;
+    }
+
+    .lead {
+      max-width: 740px;
+      color: var(--soft);
+      font-size: clamp(18px, 2vw, 22px);
+      margin: 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      font-weight: 800;
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.45);
+    }
+
+    .btn-primary {
+      color: #06111f;
+      background: linear-gradient(135deg, var(--accent), #7dd3fc);
+      border-color: transparent;
+    }
+
+    .btn-ghost {
+      background: rgba(15, 27, 45, 0.74);
+      color: var(--text);
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: rgba(15, 27, 45, 0.78);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -80px -80px auto auto;
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.16);
+      filter: blur(8px);
+    }
+
+    .hero-card h2 {
+      margin: 0 0 14px;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .stat {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(17, 31, 51, 0.86);
+      border: 1px solid var(--line);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 26px;
+      line-height: 1;
+      color: #ffffff;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    section {
+      padding: 58px 0;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 22px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+    }
+
+    .section-title p {
+      max-width: 520px;
+      margin: 0;
+      color: var(--muted);
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
     }
 
     .card {
-      background: #1e293b;
-      border: 1px solid #334155;
-      border-radius: 16px;
-      padding: 20px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(15, 27, 45, 0.92), rgba(15, 27, 45, 0.7));
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
     }
 
     .card h3 {
-      margin-top: 0;
-      color: #f8fafc;
+      margin: 0 0 10px;
+      font-size: 20px;
+      letter-spacing: -0.025em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--soft);
     }
 
     .stack {
-      color: #94a3b8;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0 0;
+    }
+
+    .tag {
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: #dbeafe;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.16);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 14px;
+    }
+
+    .project h3 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .project-type {
+      white-space: nowrap;
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: #bbf7d0;
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.18);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .project ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--soft);
+    }
+
+    .project li + li {
+      margin-top: 8px;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 4px;
+    }
+
+    .mini-link {
+      color: #bae6fd;
+      font-weight: 800;
       font-size: 14px;
-      margin-bottom: 12px;
     }
 
     .skills {
@@ -94,125 +366,399 @@
       gap: 10px;
     }
 
-    .skills span {
-      background: #1e293b;
-      border: 1px solid #334155;
-      padding: 8px 12px;
+    .skill {
+      padding: 10px 13px;
       border-radius: 999px;
-      color: #cbd5e1;
+      background: rgba(17, 31, 51, 0.78);
+      border: 1px solid var(--line);
+      color: var(--soft);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 18px;
+      padding: 22px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: rgba(15, 27, 45, 0.72);
+    }
+
+    .timeline-time {
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .timeline-item h3 {
+      margin: 0 0 8px;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: var(--soft);
+    }
+
+    .contact {
+      padding: 34px;
+      border-radius: 30px;
+      border: 1px solid rgba(56, 189, 248, 0.24);
+      background:
+        radial-gradient(circle at top right, rgba(56, 189, 248, 0.16), transparent 22rem),
+        rgba(15, 27, 45, 0.9);
+      box-shadow: var(--shadow);
+    }
+
+    .contact h2 {
+      margin: 0 0 12px;
+      font-size: clamp(30px, 4vw, 46px);
+      letter-spacing: -0.045em;
+    }
+
+    .contact p {
+      max-width: 760px;
+      color: var(--soft);
+      margin: 0 0 24px;
+    }
+
+    footer {
+      padding: 34px 0 46px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 880px) {
+      .hero,
+      .project-grid,
+      .grid,
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .wrap {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .hero {
+        padding-top: 58px;
+      }
+
+      .hero-card,
+      .contact {
+        border-radius: 22px;
+        padding: 20px;
+      }
+
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-top {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
-
 <body>
-  <main>
-    <section class="hero">
-      <div class="tag">Python Backend & Automation Developer</div>
-      <h1>Max Gadada</h1>
-      <p>
-        I build backend services, REST APIs, Telegram bots, automation tools,
-        data-processing scripts, and AI-assisted workflows using Python,
-        Django, FastAPI, Docker, Redis, PostgreSQL, and Telegram Bot API.
-      </p>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brand-mark">MG</span>
+        <span>Max Gadada</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">What I build</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-      <div class="links">
-        <a href="https://github.com/KoTeuKa404">GitHub</a>
-        <a href="https://t.me/KoTeuKa404">Telegram</a>
-        <a href="mailto:maxgadada@gmail.com">Email</a>
+  <main id="top">
+    <section class="wrap hero">
+      <div>
+        <span class="eyebrow"><span class="dot"></span> Available for remote Python/backend work</span>
+        <h1>Python backend, automation and business tools.</h1>
+        <p class="lead">
+          I build REST APIs, CRM-style backend logic, Telegram bots, parsers, internal automation tools and Dockerized services that help teams process data, integrate systems and reduce repetitive manual work.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:maxgadada@gmail.com">Contact me</a>
+          <a class="btn btn-ghost" href="https://github.com/KoTeuKa404" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn btn-ghost" href="https://t.me/KoTeuKa404" target="_blank" rel="noreferrer">Telegram</a>
+        </div>
       </div>
+
+      <aside class="hero-card" aria-label="Profile highlights">
+        <h2>Focus areas</h2>
+        <p>
+          Backend development, automation workflows, data scraping, bot integrations, CRM/ERP logic and API-first tools.
+        </p>
+        <div class="stat-grid">
+          <div class="stat">
+            <strong>1+ yr</strong>
+            <span>commercial Python/backend experience</span>
+          </div>
+          <div class="stat">
+            <strong>4+ yrs</strong>
+            <span>practical Python projects</span>
+          </div>
+          <div class="stat">
+            <strong>API</strong>
+            <span>REST, auth, integrations and webhooks</span>
+          </div>
+          <div class="stat">
+            <strong>Docker</strong>
+            <span>backend services and deploy-ready stacks</span>
+          </div>
+        </div>
+      </aside>
     </section>
 
-    <section>
-      <h2>Tech Stack</h2>
-      <div class="skills">
-        <span>Python</span>
-        <span>Django</span>
-        <span>Django REST Framework</span>
-        <span>FastAPI</span>
-        <span>PostgreSQL</span>
-        <span>MySQL</span>
-        <span>Redis</span>
-        <span>Celery</span>
-        <span>Docker</span>
-        <span>Nginx</span>
-        <span>Gunicorn</span>
-        <span>aiogram</span>
-        <span>Selenium</span>
-        <span>Playwright</span>
-        <span>PyQt6</span>
-        <span>Kivy</span>
-        <span>FFmpeg</span>
+    <section class="wrap" id="services">
+      <div class="section-title">
+        <h2>What I build</h2>
+        <p>Practical software for business processes: from backend APIs and CRM modules to Telegram bots, parsers and automation services.</p>
       </div>
-    </section>
-
-    <section>
-      <h2>Selected Projects</h2>
 
       <div class="grid">
-        <div class="card">
-          <h3>AI Knowledge Assistant</h3>
-          <div class="stack">FastAPI · PostgreSQL · Docker · RAG · Telegram Bot</div>
-          <p>
-            Backend service for document-based AI assistance with file validation,
-            text extraction, chunking, embeddings, chat routes, and Telegram bot integration.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>AI Content Factory Bot</h3>
-          <div class="stack">Python · Telegram Bot · TTS · Subtitles · FFmpeg</div>
-          <p>
-            Automation pipeline for generating content batches, voiceovers,
-            subtitles, video rendering, and Telegram-based control flow.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Dockerized Django REST API Backend</h3>
-          <div class="stack">Django · DRF · JWT · Redis · Celery · Docker · Nginx</div>
-          <p>
-            REST API backend with authentication, CRUD endpoints, permissions,
-            serializers, relational models, background tasks, and Docker Compose setup.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Telegram Bot Scraper</h3>
-          <div class="stack">aiogram · Selenium · BeautifulSoup4 · requests</div>
-          <p>
-            Telegram bot for automated data collection, parsing, browser automation,
-            structured command handling, and result delivery.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>PyQt Desktop Automation App</h3>
-          <div class="stack">Python · PyQt6 · CSV · multiprocessing · PyInstaller</div>
-          <p>
-            Desktop utility for file processing and workflow automation with GUI,
-            parallel processing, safe filename handling, and Windows build support.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>PyMusic Android App</h3>
-          <div class="stack">Python · Kivy · Buildozer · Pyjnius · FFmpeg · yt-dlp</div>
-          <p>
-            Android media app with playback controls, stream handling, thumbnails,
-            Android MediaPlayer integration, and mobile debugging workflow.
-          </p>
-        </div>
+        <article class="card">
+          <h3>Backend APIs</h3>
+          <p>Django/DRF and FastAPI services with authentication, validation, serializers, relational models, CRUD endpoints and clean project structure.</p>
+        </article>
+        <article class="card">
+          <h3>CRM & workflow logic</h3>
+          <p>CRM-style features for lead/order handling, business entities, permissions, structured client data and integration flows between tools.</p>
+        </article>
+        <article class="card">
+          <h3>Automation bots</h3>
+          <p>Telegram bots for notifications, scraping, data delivery, content workflows, user commands and internal team automation.</p>
+        </article>
       </div>
     </section>
 
-    <section>
-      <h2>About</h2>
-      <p>
-        Python developer focused on practical backend development, automation,
-        API integrations, Telegram bots, parsers, and internal business tools.
-        I prefer clean, maintainable code and simple solutions that solve real problems.
-      </p>
+    <section class="wrap" id="experience">
+      <div class="section-title">
+        <h2>Experience</h2>
+        <p>Work-facing experience without game/modding focus: backend, APIs, CRM functionality, automation and deployment-oriented tooling.</p>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-time">Commercial projects · 1+ year</div>
+          <div>
+            <h3>Python / Backend Developer</h3>
+            <p>
+              Developed CRM functionality with Django, DRF, PostgreSQL and Redis. Built REST API endpoints, authentication flows, relational models, validation, permissions, serializers and core business logic. Also implemented Telegram bots and PyQt tools for automation and data processing.
+            </p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-time">Personal projects · 4+ years</div>
+          <div>
+            <h3>Python automation, bots and apps</h3>
+            <p>
+              Built bots, parsers, desktop utilities, Android media experiments and data-processing scripts using aiogram, Selenium, Playwright, PyQt, Kivy, FFmpeg, yt-dlp and Docker-based workflows.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap" id="projects">
+      <div class="section-title">
+        <h2>Selected projects</h2>
+        <p>Projects selected for Python backend, automation and business-tool roles. Repository links can be added when each project is cleaned up and ready to show.</p>
+      </div>
+
+      <div class="project-grid">
+        <article class="card project">
+          <div class="project-top">
+            <h3>CRM / ERP Backend & API Integrations</h3>
+            <span class="project-type">Backend</span>
+          </div>
+          <p>
+            Commercial backend experience focused on CRM-style functionality, structured business data and API-driven workflows.
+          </p>
+          <ul>
+            <li>Implemented REST API features for business entities, CRUD operations, validation and permissions.</li>
+            <li>Worked with authentication flows, relational database models, serializers and structured API responses.</li>
+            <li>Handled CRM-style data flows for leads, orders, clients, notifications and internal business logic.</li>
+          </ul>
+          <div class="stack">
+            <span class="tag">Python</span><span class="tag">Django</span><span class="tag">DRF</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">Docker</span>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="project-top">
+            <h3>Dockerized Django REST API Backend</h3>
+            <span class="project-type">API</span>
+          </div>
+          <p>
+            A backend API project with authentication, relational data models and deployment-oriented infrastructure.
+          </p>
+          <ul>
+            <li>Built CRUD endpoints with Django REST Framework, serializers, permissions and pagination.</li>
+            <li>Configured JWT authentication with SimpleJWT/Djoser and designed relational models.</li>
+            <li>Prepared a Docker Compose stack with database, Redis, Adminer, Gunicorn, Nginx and environment-based settings.</li>
+          </ul>
+          <div class="stack">
+            <span class="tag">Django</span><span class="tag">DRF</span><span class="tag">JWT</span><span class="tag">Celery</span><span class="tag">Nginx</span><span class="tag">Gunicorn</span>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="project-top">
+            <h3>Work.ua Telegram Job Scraper Bot</h3>
+            <span class="project-type">Bot</span>
+          </div>
+          <p>
+            Telegram bot that searches job listings, scrapes vacancy pages and returns structured results to the user.
+          </p>
+          <ul>
+            <li>Implemented command flow, finite-state interaction and inline buttons with aiogram.</li>
+            <li>Used Selenium and BeautifulSoup to parse job pages, salary, company, employment type and requirements.</li>
+            <li>Prepared Docker-based runtime with Chromium/ChromeDriver support for repeatable deployment.</li>
+          </ul>
+          <div class="stack">
+            <span class="tag">aiogram</span><span class="tag">Selenium</span><span class="tag">BeautifulSoup</span><span class="tag">Docker</span><span class="tag">Chromium</span>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="project-top">
+            <h3>AI Content Automation Pipeline</h3>
+            <span class="project-type">Automation</span>
+          </div>
+          <p>
+            Automation flow for producing short-form content batches with generation, voiceover, subtitles and video rendering steps.
+          </p>
+          <ul>
+            <li>Designed a pipeline-oriented structure for batches, generated items, audio files, subtitles and rendered videos.</li>
+            <li>Integrated TTS, subtitle generation and FFmpeg-based rendering into a repeatable workflow.</li>
+            <li>Built the project around practical content operations rather than a single manual editing step.</li>
+          </ul>
+          <div class="stack">
+            <span class="tag">Python</span><span class="tag">TTS</span><span class="tag">FFmpeg</span><span class="tag">Subtitles</span><span class="tag">Automation</span>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="project-top">
+            <h3>MEXC Price Alert Telegram Bot</h3>
+            <span class="project-type">Async</span>
+          </div>
+          <p>
+            Async Telegram bot that monitors MEXC contract ticker data and notifies users when price conditions are met.
+          </p>
+          <ul>
+            <li>Used aiohttp for async API polling and aiogram for bot commands and inline controls.</li>
+            <li>Implemented per-user subscriptions, thresholds, stop actions and repeated watcher loop.</li>
+            <li>Packaged the bot with Docker using a non-root runtime user.</li>
+          </ul>
+          <div class="stack">
+            <span class="tag">aiogram</span><span class="tag">aiohttp</span><span class="tag">AsyncIO</span><span class="tag">Docker</span><span class="tag">API</span>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="project-top">
+            <h3>PyQt Desktop Automation App</h3>
+            <span class="project-type">Desktop</span>
+          </div>
+          <p>
+            Desktop utility for workflow automation, file/audio processing and Windows-friendly internal tooling.
+          </p>
+          <ul>
+            <li>Built GUI flows for structured task execution and file processing.</li>
+            <li>Worked with multiprocessing, Unicode-safe filenames, metadata and FFmpeg/yt-dlp tooling.</li>
+            <li>Prepared Windows EXE build support with PyInstaller.</li>
+          </ul>
+          <div class="stack">
+            <span class="tag">Python</span><span class="tag">PyQt6</span><span class="tag">CSV</span><span class="tag">FFmpeg</span><span class="tag">PyInstaller</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap" id="skills">
+      <div class="section-title">
+        <h2>Technical skills</h2>
+        <p>Stack used across backend services, bots, parsers, desktop tools and deployment-ready automation projects.</p>
+      </div>
+
+      <div class="skills">
+        <span class="skill">Python</span>
+        <span class="skill">Django</span>
+        <span class="skill">Django REST Framework</span>
+        <span class="skill">FastAPI</span>
+        <span class="skill">REST APIs</span>
+        <span class="skill">JWT</span>
+        <span class="skill">SimpleJWT</span>
+        <span class="skill">Djoser</span>
+        <span class="skill">PostgreSQL</span>
+        <span class="skill">MySQL</span>
+        <span class="skill">SQLite</span>
+        <span class="skill">Redis</span>
+        <span class="skill">Celery</span>
+        <span class="skill">Docker</span>
+        <span class="skill">Docker Compose</span>
+        <span class="skill">Nginx</span>
+        <span class="skill">Gunicorn</span>
+        <span class="skill">aiogram</span>
+        <span class="skill">Telegram Bot API</span>
+        <span class="skill">Selenium</span>
+        <span class="skill">Playwright</span>
+        <span class="skill">BeautifulSoup4</span>
+        <span class="skill">requests</span>
+        <span class="skill">aiohttp</span>
+        <span class="skill">PyQt6</span>
+        <span class="skill">Kivy</span>
+        <span class="skill">FFmpeg</span>
+        <span class="skill">yt-dlp</span>
+        <span class="skill">Git</span>
+        <span class="skill">Linux basics</span>
+      </div>
+    </section>
+
+    <section class="wrap" id="contact">
+      <div class="contact">
+        <h2>Let’s build practical automation.</h2>
+        <p>
+          I am interested in Python backend, CRM/ERP logic, API integrations, Telegram automation, scraping/data-processing tools and AI-assisted workflows.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:maxgadada@gmail.com">maxgadada@gmail.com</a>
+          <a class="btn btn-ghost" href="https://t.me/KoTeuKa404" target="_blank" rel="noreferrer">Telegram</a>
+          <a class="btn btn-ghost" href="https://github.com/KoTeuKa404" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
     </section>
   </main>
+
+  <footer>
+    <div class="wrap">
+      © 2026 Max Gadada. Python Backend & Automation Developer.
+    </div>
+  </footer>
 </body>
 </html>
