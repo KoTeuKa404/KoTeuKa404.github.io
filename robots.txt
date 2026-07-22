@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://koteuka404.github.io/sitemap.xml
