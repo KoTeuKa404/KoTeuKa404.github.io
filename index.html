@@ -3,44 +3,98 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Max Gadada — Python Backend & Automation Developer portfolio. Django, DRF, FastAPI, Telegram bots, CRM workflows, AI automation, Docker, Redis, PostgreSQL, PyQt and Android apps." />
-  <title>Max Gadada — Python Backend & Automation Developer</title>
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#030405" />
+  <meta
+    name="description"
+    content="Max Gadada — Python Backend and AI Automation Developer. Django, DRF, FastAPI, PostgreSQL, Redis, Celery, Telegram bots, CRM/ERP workflows, integrations and production automation."
+  />
+  <meta name="author" content="Max Gadada" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Max Gadada — Python Backend / AI Automation Developer" />
+  <meta
+    property="og:description"
+    content="Backend systems, CRM/ERP workflows, Telegram bots, integrations, AI tools and production automation."
+  />
+  <meta property="og:url" content="https://koteuka404.github.io/" />
+  <link rel="canonical" href="https://koteuka404.github.io/" />
+  <title>Max Gadada — Python Backend / AI Automation Developer</title>
+
   <style>
     :root {
-      --bg: #07111f;
-      --bg-soft: #0b1627;
-      --panel: rgba(15, 27, 45, 0.88);
-      --panel-2: rgba(17, 31, 51, 0.92);
-      --text: #eaf2ff;
-      --muted: #9fb0c8;
-      --soft: #cbd8ea;
-      --line: rgba(148, 163, 184, 0.24);
-      --accent: #38bdf8;
-      --accent-2: #22c55e;
-      --accent-3: #a78bfa;
-      --warning: #fbbf24;
-      --shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
-      --radius: 26px;
+      --bg: #030405;
+      --bg-2: #060708;
+      --panel: rgba(10, 11, 13, 0.92);
+      --panel-strong: #0b0c0f;
+      --panel-soft: #0f1115;
+      --text: #f4f5f7;
+      --text-soft: #c7cbd2;
+      --muted: #858b96;
+      --line: rgba(255, 255, 255, 0.105);
+      --line-strong: rgba(255, 255, 255, 0.18);
+      --accent: #a8c7e8;
+      --accent-soft: rgba(168, 199, 232, 0.1);
+      --success: #9bc9ad;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.46);
+      --wrap: 1180px;
     }
 
-    * {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
     }
 
     html {
       scroll-behavior: smooth;
+      background: var(--bg);
     }
 
     body {
+      min-width: 320px;
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      overflow-x: hidden;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 34rem),
-        radial-gradient(circle at 92% 6%, rgba(167, 139, 250, 0.14), transparent 29rem),
-        radial-gradient(circle at 10% 82%, rgba(34, 197, 94, 0.08), transparent 28rem),
-        linear-gradient(180deg, #07111f 0%, #0a1220 52%, #060b14 100%);
+        radial-gradient(circle at 75% -10%, rgba(91, 123, 158, 0.13), transparent 32rem),
+        radial-gradient(circle at -10% 22%, rgba(78, 89, 115, 0.08), transparent 28rem),
+        linear-gradient(180deg, #020304 0%, #050608 44%, #020304 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
       line-height: 1.68;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    body::before {
+      opacity: 0.42;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.72) 0 1px, transparent 1.4px),
+        radial-gradient(circle, rgba(175,199,225,0.46) 0 1px, transparent 1.4px),
+        radial-gradient(circle, rgba(255,255,255,0.32) 0 0.7px, transparent 1.1px);
+      background-position: 0 0, 70px 100px, 130px 25px;
+      background-size: 190px 190px, 260px 260px, 120px 120px;
+      mask-image: linear-gradient(to bottom, black, rgba(0,0,0,0.36) 72%, transparent);
+    }
+
+    body::after {
+      z-index: -1;
+      background:
+        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
     }
 
     a {
@@ -48,379 +102,565 @@
       text-decoration: none;
     }
 
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    ::selection {
+      color: #020304;
+      background: #c9d9ea;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 100;
+      padding: 10px 14px;
+      color: #020304;
+      background: #fff;
+      border-radius: 8px;
+      transform: translateY(-150%);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
     .wrap {
-      width: min(1160px, calc(100% - 40px));
-      margin: 0 auto;
+      width: min(var(--wrap), calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .mono {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+
+    .muted {
+      color: var(--muted);
     }
 
     header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      backdrop-filter: blur(18px);
-      background: rgba(7, 17, 31, 0.78);
+      z-index: 30;
       border-bottom: 1px solid var(--line);
+      background: rgba(3, 4, 5, 0.82);
+      backdrop-filter: blur(18px) saturate(120%);
     }
 
     .nav {
-      min-height: 70px;
+      min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 24px;
     }
 
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 12px;
-      font-weight: 850;
-      letter-spacing: -0.03em;
+      font-size: 14px;
+      font-weight: 780;
+      letter-spacing: 0.02em;
       white-space: nowrap;
     }
 
     .brand-mark {
-      width: 40px;
-      height: 40px;
+      width: 38px;
+      height: 38px;
       display: grid;
       place-items: center;
-      border-radius: 14px;
-      color: #06111f;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 12px 38px rgba(56, 189, 248, 0.25);
-      font-weight: 900;
+      color: var(--text);
+      border: 1px solid var(--line-strong);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 32% 28%, rgba(255,255,255,0.18), transparent 24%),
+        #090a0d;
+      box-shadow: inset 0 0 18px rgba(168, 199, 232, 0.08);
+      font-size: 11px;
+      letter-spacing: 0.06em;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 22px;
       color: var(--muted);
-      font-size: 14px;
-      white-space: nowrap;
+      font-size: 13px;
+      font-weight: 650;
     }
 
-    .nav-links a:hover {
+    .nav-links a {
+      transition: color 160ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
       color: var(--text);
     }
 
-    .hero {
-      padding: 90px 0 56px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
-      gap: 34px;
-      align-items: stretch;
+    .nav-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-soft);
+      font-size: 12px;
     }
 
-    .eyebrow {
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 14px rgba(155, 201, 173, 0.5);
+    }
+
+    main {
+      overflow: clip;
+    }
+
+    .hero {
+      min-height: calc(100svh - 72px);
+      padding: 92px 0 74px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(330px, 0.75fr);
+      align-items: center;
+      gap: 56px;
+    }
+
+    .kicker {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      color: #b8e9ff;
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 800;
+      margin-bottom: 24px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
 
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent-2);
-      box-shadow: 0 0 20px var(--accent-2);
+    .kicker::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.7;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p {
+      overflow-wrap: anywhere;
     }
 
     h1 {
-      margin: 22px 0 16px;
-      max-width: 850px;
-      font-size: clamp(42px, 7vw, 76px);
-      line-height: 0.98;
-      letter-spacing: -0.075em;
+      max-width: 900px;
+      margin: 0;
+      font-size: clamp(48px, 7.7vw, 92px);
+      line-height: 0.93;
+      letter-spacing: -0.072em;
+      font-weight: 780;
+    }
+
+    h1 span {
+      display: block;
+      color: var(--muted);
+      font-weight: 520;
     }
 
     .lead {
       max-width: 760px;
-      color: var(--soft);
+      margin: 30px 0 0;
+      color: var(--text-soft);
       font-size: clamp(18px, 2vw, 22px);
-      margin: 0;
+      line-height: 1.6;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 30px;
+      margin-top: 34px;
     }
 
     .btn {
+      min-height: 48px;
+      padding: 12px 18px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      min-height: 46px;
-      padding: 12px 18px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      font-weight: 850;
-      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+      gap: 9px;
+      border: 1px solid var(--line-strong);
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 760;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
     }
 
-    .btn:hover {
+    .btn:hover,
+    .btn:focus-visible {
       transform: translateY(-2px);
-      border-color: rgba(56, 189, 248, 0.48);
+      border-color: rgba(255, 255, 255, 0.34);
     }
 
     .btn-primary {
-      color: #06111f;
-      background: linear-gradient(135deg, var(--accent), #7dd3fc);
-      border-color: transparent;
+      color: #050608;
+      background: #f2f4f7;
+      border-color: #f2f4f7;
     }
 
-    .btn-ghost {
-      background: rgba(15, 27, 45, 0.76);
-      color: var(--text);
+    .btn-secondary {
+      background: rgba(255,255,255,0.025);
     }
 
-    .hero-card {
-      position: relative;
-      overflow: hidden;
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      background: var(--panel);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: -80px -80px auto auto;
-      width: 190px;
-      height: 190px;
-      border-radius: 50%;
-      background: rgba(56, 189, 248, 0.16);
-      filter: blur(8px);
-    }
-
-    .hero-card h2 {
-      position: relative;
-      margin: 0 0 14px;
-      font-size: 18px;
-      letter-spacing: -0.02em;
-    }
-
-    .info-list {
-      position: relative;
-      display: grid;
-      gap: 12px;
-      margin: 18px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .info-list li {
-      display: flex;
-      gap: 10px;
-      color: var(--soft);
-    }
-
-    .info-list span {
-      color: var(--accent);
-      font-weight: 900;
-    }
-
-    .stat-grid {
-      position: relative;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .stat {
-      padding: 16px;
-      border-radius: 18px;
-      background: rgba(17, 31, 51, 0.9);
-      border: 1px solid var(--line);
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 26px;
-      line-height: 1;
-      color: #ffffff;
-    }
-
-    .stat span {
-      display: block;
-      margin-top: 8px;
+    .hero-note {
+      margin: 22px 0 0;
       color: var(--muted);
       font-size: 13px;
     }
 
-    section {
-      padding: 58px 0;
+    .orbit-card {
+      position: relative;
+      min-height: 510px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
     }
 
-    .section-title {
+    .orbit-card::before,
+    .orbit-card::after,
+    .orbit-ring {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(255,255,255,0.105);
+      border-radius: 50%;
+    }
+
+    .orbit-card::before {
+      width: 430px;
+      height: 430px;
+    }
+
+    .orbit-card::after {
+      width: 315px;
+      height: 315px;
+      border-style: dashed;
+      opacity: 0.75;
+    }
+
+    .orbit-ring {
+      width: 218px;
+      height: 218px;
+      opacity: 0.72;
+    }
+
+    .orbit-node {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #d9e5f1;
+      box-shadow: 0 0 18px rgba(217, 229, 241, 0.64);
+    }
+
+    .orbit-node.one {
+      top: 56px;
+      right: 94px;
+    }
+
+    .orbit-node.two {
+      bottom: 90px;
+      left: 66px;
+      width: 5px;
+      height: 5px;
+      opacity: 0.65;
+    }
+
+    .profile-card {
+      position: relative;
+      z-index: 2;
+      width: min(100%, 330px);
+      padding: 26px;
+      border: 1px solid var(--line-strong);
+      border-radius: 24px;
+      background: rgba(7, 8, 10, 0.94);
+      box-shadow: var(--shadow), inset 0 1px rgba(255,255,255,0.03);
+    }
+
+    .profile-label {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .profile-card h2 {
+      margin: 0;
+      font-size: 25px;
+      line-height: 1.16;
+      letter-spacing: -0.035em;
+    }
+
+    .profile-card > p {
+      margin: 12px 0 0;
+      color: var(--text-soft);
+      font-size: 14px;
+    }
+
+    .snapshot {
+      margin: 22px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 0;
+      list-style: none;
+      border-top: 1px solid var(--line);
+    }
+
+    .snapshot li {
+      padding: 13px 0;
       display: flex;
       justify-content: space-between;
-      align-items: end;
-      gap: 24px;
-      margin-bottom: 22px;
+      gap: 18px;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
     }
 
-    .section-title h2 {
-      margin: 0;
-      font-size: clamp(28px, 4vw, 42px);
-      line-height: 1.05;
-      letter-spacing: -0.05em;
-    }
-
-    .section-title p {
-      max-width: 560px;
-      margin: 0;
+    .snapshot span:first-child {
       color: var(--muted);
     }
 
-    .grid {
+    .snapshot span:last-child {
+      color: var(--text-soft);
+      text-align: right;
+    }
+
+    section {
+      padding: 78px 0;
+      scroll-margin-top: 82px;
+    }
+
+    .section-head {
+      margin-bottom: 28px;
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
+      grid-template-columns: minmax(0, 0.85fr) minmax(300px, 0.65fr);
+      align-items: end;
+      justify-content: space-between;
+      gap: 36px;
+    }
+
+    .section-index {
+      display: block;
+      margin-bottom: 13px;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(32px, 5vw, 54px);
+      line-height: 1;
+      letter-spacing: -0.052em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .grid-12 {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
       gap: 18px;
     }
 
     .card {
       border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(17, 31, 51, 0.96), rgba(12, 23, 39, 0.96));
-      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.18);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.025), transparent 28%),
+        var(--panel);
+      box-shadow: 0 18px 58px rgba(0, 0, 0, 0.2);
     }
 
-    .service {
-      grid-column: span 3;
-      padding: 22px;
-    }
-
-    .service h3,
-    .project h3,
-    .timeline-card h3,
-    .skill-box h3 {
-      margin: 0 0 10px;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-    }
-
-    .service p,
-    .timeline-card p,
-    .project p,
-    .skill-box p,
-    .edu-card p {
-      margin: 0;
-      color: var(--soft);
-    }
-
-    .timeline {
-      display: grid;
-      gap: 18px;
-    }
-
-    .timeline-card {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 22px;
+    .capability {
+      grid-column: span 4;
+      min-height: 230px;
       padding: 24px;
+      display: flex;
+      flex-direction: column;
     }
 
-    .period {
-      color: #b8e9ff;
-      font-weight: 850;
+    .capability-num {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.12em;
     }
 
-    .timeline-card ul,
-    .project ul,
-    .compact-list {
+    .capability h3 {
+      margin: auto 0 10px;
+      font-size: 22px;
+      letter-spacing: -0.035em;
+    }
+
+    .capability p {
+      margin: 0;
+      color: var(--text-soft);
+      font-size: 14px;
+    }
+
+    .experience-card {
+      padding: 32px;
+      display: grid;
+      grid-template-columns: minmax(210px, 0.32fr) minmax(0, 1fr);
+      gap: 36px;
+    }
+
+    .experience-side {
+      padding-right: 30px;
+      border-right: 1px solid var(--line);
+    }
+
+    .experience-side strong {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 18px;
+    }
+
+    .experience-side p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .experience-main h3 {
+      margin: 0;
+      font-size: clamp(25px, 3vw, 34px);
+      line-height: 1.12;
+      letter-spacing: -0.04em;
+    }
+
+    .experience-main > p {
+      max-width: 840px;
       margin: 14px 0 0;
-      padding-left: 18px;
-      color: var(--soft);
+      color: var(--text-soft);
     }
 
-    .timeline-card li,
-    .project li,
-    .compact-list li {
+    .detail-columns {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .detail-box {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.018);
+    }
+
+    .detail-box h4 {
+      margin: 0 0 12px;
+      color: var(--text);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--text-soft);
+    }
+
+    .list li {
       margin: 8px 0;
+      padding-left: 3px;
+    }
+
+    .list li::marker {
+      color: #6f7d8e;
     }
 
     .project {
       grid-column: span 6;
-      padding: 24px;
+      min-height: 420px;
+      padding: 26px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 18px;
     }
 
-    .project.wide {
+    .project.featured {
       grid-column: span 12;
+      min-height: auto;
     }
 
     .project-head {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      gap: 16px;
+      gap: 18px;
+    }
+
+    .project h3 {
+      margin: 0;
+      font-size: 25px;
+      line-height: 1.12;
+      letter-spacing: -0.038em;
+    }
+
+    .project-subtitle {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 13px;
     }
 
     .badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 7px 12px;
+      flex: 0 0 auto;
+      padding: 7px 10px;
+      color: var(--accent);
+      border: 1px solid rgba(168, 199, 232, 0.22);
       border-radius: 999px;
-      color: #bfffd3;
-      background: rgba(34, 197, 94, 0.12);
-      border: 1px solid rgba(34, 197, 94, 0.26);
-      font-size: 12px;
-      font-weight: 900;
-      white-space: nowrap;
+      background: var(--accent-soft);
+      font-size: 10px;
+      font-weight: 780;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
-    .badge.ai {
-      color: #d9ccff;
-      background: rgba(167, 139, 250, 0.12);
-      border-color: rgba(167, 139, 250, 0.28);
+    .project > p {
+      margin: 0;
+      color: var(--text-soft);
     }
 
-    .badge.api {
-      color: #b8e9ff;
-      background: rgba(56, 189, 248, 0.12);
-      border-color: rgba(56, 189, 248, 0.28);
-    }
-
-    .meta {
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .detail-grid {
+    .project-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
     }
 
-    .detail-box {
-      padding: 16px;
-      border-radius: 18px;
-      background: rgba(7, 17, 31, 0.42);
-      border: 1px solid rgba(148, 163, 184, 0.14);
+    .project-link {
+      width: fit-content;
+      margin-top: auto;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 760;
     }
 
-    .detail-box h4 {
-      margin: 0 0 8px;
-      color: #ffffff;
-      letter-spacing: -0.02em;
+    .project-link:hover,
+    .project-link:focus-visible {
+      color: #fff;
     }
 
     .tags {
@@ -431,258 +671,451 @@
     }
 
     .tag {
-      display: inline-flex;
       padding: 7px 10px;
+      color: #b9bec7;
+      border: 1px solid var(--line);
       border-radius: 999px;
-      color: #d9efff;
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.22);
-      font-size: 12px;
-      font-weight: 850;
+      background: rgba(255,255,255,0.022);
+      font-size: 11px;
+      font-weight: 660;
     }
 
-    .project-link {
-      display: inline-flex;
-      width: fit-content;
-      margin-top: 2px;
-      color: #7dd3fc;
-      font-weight: 850;
-    }
-
-    .project-link:hover {
-      color: #ffffff;
-    }
-
-    .skills-grid {
+    .skills {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
     }
 
-    .skill-box {
-      padding: 22px;
-    }
-
-    .skill-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 14px;
-    }
-
-    .skill-pills span {
-      display: inline-flex;
-      background: rgba(15, 27, 45, 0.82);
-      border: 1px solid var(--line);
-      padding: 8px 11px;
-      border-radius: 999px;
-      color: var(--soft);
-      font-weight: 760;
-      font-size: 13px;
-    }
-
-    .catalog {
-      width: 100%;
-      border-collapse: collapse;
-      overflow: hidden;
-      border-radius: 22px;
-      border: 1px solid var(--line);
-      background: rgba(17, 31, 51, 0.76);
-    }
-
-    .catalog th,
-    .catalog td {
-      padding: 15px 16px;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.16);
-      text-align: left;
-      vertical-align: top;
-    }
-
-    .catalog th {
-      color: #ffffff;
-      background: rgba(7, 17, 31, 0.52);
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .catalog td {
-      color: var(--soft);
-    }
-
-    .catalog tr:last-child td {
-      border-bottom: 0;
-    }
-
-    .edu-card {
+    .skill-group {
       padding: 24px;
     }
 
-    .footer {
-      padding: 44px 0 58px;
+    .skill-group h3 {
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: -0.03em;
+    }
+
+    .skill-group p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .skill-list {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-list span {
+      padding: 8px 11px;
+      color: var(--text-soft);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.018);
+      font-size: 12px;
+      font-weight: 670;
+    }
+
+    .education {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+      gap: 18px;
+    }
+
+    .education-card {
+      padding: 28px;
+    }
+
+    .education-card h3 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: -0.035em;
+    }
+
+    .education-card p {
+      margin: 12px 0 0;
+      color: var(--text-soft);
+    }
+
+    .education-meta {
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .contact-panel {
+      padding: 34px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 34px;
+      border-color: var(--line-strong);
+    }
+
+    .contact-panel h2 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1;
+      letter-spacing: -0.055em;
+    }
+
+    .contact-panel p {
+      max-width: 720px;
+      margin: 16px 0 0;
+      color: var(--text-soft);
+    }
+
+    .contact-links {
+      min-width: 250px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .contact-link {
+      padding: 13px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      color: var(--text-soft);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.018);
+      font-size: 13px;
+      transition: border-color 160ms ease, color 160ms ease;
+    }
+
+    .contact-link:hover,
+    .contact-link:focus-visible {
+      color: #fff;
+      border-color: var(--line-strong);
+    }
+
+    .contact-link span:last-child {
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 32px 0 48px;
       color: var(--muted);
       border-top: 1px solid var(--line);
-      margin-top: 40px;
+      font-size: 12px;
     }
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
     }
 
-    .contact-card {
-      padding: 18px;
-      border-radius: 20px;
-      background: rgba(17, 31, 51, 0.8);
-      border: 1px solid var(--line);
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
     }
 
-    .contact-card strong {
-      display: block;
-      color: #ffffff;
-      margin-bottom: 6px;
-    }
-
-    .note {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    @media (max-width: 960px) {
-      .hero,
-      .timeline-card {
+    @media (max-width: 980px) {
+      .hero {
+        min-height: auto;
         grid-template-columns: 1fr;
       }
 
-      .service,
+      .orbit-card {
+        min-height: 390px;
+      }
+
+      .orbit-card::before {
+        width: 360px;
+        height: 360px;
+      }
+
+      .orbit-card::after {
+        width: 270px;
+        height: 270px;
+      }
+
+      .section-head,
+      .experience-card,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-side {
+        padding: 0 0 22px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .capability {
+        grid-column: span 6;
+      }
+
       .project,
-      .project.wide {
+      .project.featured {
         grid-column: span 12;
       }
 
-      .skills-grid,
-      .contact-grid {
+      .education {
         grid-template-columns: 1fr;
       }
 
-      .detail-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-links {
-        display: none;
+      .contact-links {
+        min-width: 0;
       }
     }
 
-    @media (max-width: 620px) {
+    @media (max-width: 720px) {
       .wrap {
-        width: min(100% - 28px, 1160px);
+        width: min(100% - 28px, var(--wrap));
+      }
+
+      .nav {
+        min-height: 64px;
+      }
+
+      .nav-links,
+      .nav-status {
+        display: none;
       }
 
       .hero {
-        padding-top: 58px;
+        padding: 72px 0 48px;
+        gap: 28px;
       }
 
       h1 {
-        letter-spacing: -0.055em;
+        font-size: clamp(45px, 16vw, 68px);
       }
 
-      .stat-grid {
+      .lead {
+        margin-top: 24px;
+      }
+
+      .orbit-card {
+        min-height: 355px;
+      }
+
+      .orbit-card::before {
+        width: 325px;
+        height: 325px;
+      }
+
+      .orbit-card::after {
+        width: 244px;
+        height: 244px;
+      }
+
+      .profile-card {
+        width: min(100%, 300px);
+        padding: 22px;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+
+      .section-head {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .capability {
+        grid-column: span 12;
+        min-height: 190px;
+      }
+
+      .experience-card,
+      .project,
+      .education-card,
+      .contact-panel {
+        padding: 22px;
+      }
+
+      .detail-columns,
+      .project-grid,
+      .skills {
         grid-template-columns: 1fr;
       }
 
-      .section-title {
-        align-items: start;
-        flex-direction: column;
+      .project {
+        min-height: 0;
       }
 
       .project-head {
         flex-direction: column;
       }
 
-      .catalog {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
+      .footer-row {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
       }
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Max Gadada",
+    "url": "https://koteuka404.github.io/",
+    "sameAs": [
+      "https://github.com/KoTeuKa404",
+      "https://t.me/KoTeuKa404"
+    ],
+    "jobTitle": "Python Backend and AI Automation Developer",
+    "knowsAbout": [
+      "Python",
+      "Django",
+      "Django REST Framework",
+      "FastAPI",
+      "PostgreSQL",
+      "Redis",
+      "Celery",
+      "Docker",
+      "Telegram bots",
+      "AI automation"
+    ]
+  }
+  </script>
 </head>
+
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
   <header>
     <div class="wrap nav">
-      <a class="brand" href="#top" aria-label="Go to top">
-        <span class="brand-mark">MG</span>
-        <span>Max Gadada</span>
+      <a class="brand" href="#top" aria-label="Go to the top of the page">
+        <span class="brand-mark mono">MG</span>
+        <span>MAX GADADA</span>
       </a>
+
       <nav class="nav-links" aria-label="Main navigation">
-        <a href="#about">About</a>
+        <a href="#about">Profile</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
+        <a href="#skills">Stack</a>
         <a href="#education">Education</a>
         <a href="#contact">Contact</a>
       </nav>
+
+      <div class="nav-status">
+        <span class="status-dot" aria-hidden="true"></span>
+        Open to remote work
+      </div>
     </div>
   </header>
 
-  <main id="top">
-    <div class="wrap hero">
-      <section class="hero-copy" aria-label="Intro">
-        <div class="eyebrow"><span class="dot"></span> Available for remote backend & automation work</div>
-        <h1>Python Backend & Automation Developer</h1>
+  <main id="content">
+    <div class="wrap hero" id="top">
+      <div>
+        <div class="kicker mono">Backend · Automation · Applied AI</div>
+        <h1>
+          Python Backend
+          <span>& AI Automation Developer</span>
+        </h1>
         <p class="lead">
-          I build backend services, REST APIs, CRM-style workflows, Telegram bots, parsers,
-          desktop utilities and AI-assisted automation tools. My focus is practical software:
-          clean business logic, predictable APIs, useful integrations and maintainable code.
+          I build production-oriented backend systems, CRM and ERP workflows, Telegram bots,
+          external integrations and AI-assisted automation. My priority is reliable business logic,
+          predictable APIs, secure data handling and maintainable code.
         </p>
+
         <div class="hero-actions">
           <a class="btn btn-primary" href="mailto:maxgadada@gmail.com">Contact me</a>
-          <a class="btn btn-ghost" href="https://github.com/KoTeuKa404">GitHub</a>
-          <a class="btn btn-ghost" href="https://t.me/KoTeuKa404">Telegram</a>
+          <a class="btn btn-secondary" href="https://github.com/KoTeuKa404" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a class="btn btn-secondary" href="https://t.me/KoTeuKa404" target="_blank" rel="noopener noreferrer">Telegram ↗</a>
         </div>
-      </section>
 
-      <aside class="hero-card" aria-label="Profile summary">
-        <h2>Profile snapshot</h2>
-        <ul class="info-list">
-          <li><span>•</span> Location: Lviv Oblast, Ukraine · Remote</li>
-          <li><span>•</span> Main stack: Python, Django, DRF, FastAPI, Docker</li>
-          <li><span>•</span> Focus: backend, automation, bots, AI workflows</li>
-          <li><span>•</span> Education: Lviv Polytechnic National University</li>
-        </ul>
-        <div class="stat-grid">
-          <div class="stat"><strong>1+ yr</strong><span>commercial Python experience</span></div>
-          <div class="stat"><strong>4+ yrs</strong><span>personal Python practice</span></div>
-          <div class="stat"><strong>API</strong><span>REST, JWT, permissions</span></div>
-          <div class="stat"><strong>AI</strong><span>RAG, bots, content automation</span></div>
+        <p class="hero-note mono">Lviv region, Ukraine · Full-time remote · English B1</p>
+      </div>
+
+      <aside class="orbit-card" aria-label="Profile summary">
+        <span class="orbit-ring" aria-hidden="true"></span>
+        <span class="orbit-node one" aria-hidden="true"></span>
+        <span class="orbit-node two" aria-hidden="true"></span>
+
+        <div class="profile-card">
+          <p class="profile-label mono">Current profile</p>
+          <h2>Backend developer focused on practical automation.</h2>
+          <p>
+            More than one year of commercial remote Python work and over four years of personal development practice.
+          </p>
+
+          <ul class="snapshot">
+            <li><span>Core</span><span>Python · Django · DRF</span></li>
+            <li><span>Data</span><span>PostgreSQL · Redis</span></li>
+            <li><span>Async</span><span>Celery · RabbitMQ</span></li>
+            <li><span>Delivery</span><span>Docker · Nginx · VPS</span></li>
+            <li><span>Focus</span><span>Backend · AI · Automation</span></li>
+          </ul>
         </div>
       </aside>
     </div>
 
     <section id="about">
       <div class="wrap">
-        <div class="section-title">
-          <h2>About me</h2>
-          <p>A more detailed CV-style overview of what I build and how I work.</p>
+        <div class="section-head">
+          <div>
+            <span class="section-index mono">01 / Profile</span>
+            <h2>What I can deliver</h2>
+          </div>
+          <p>
+            I work across backend development, integrations and automation. The goal is not just to create endpoints,
+            but to turn a real workflow into a stable system that can be used and supported.
+          </p>
         </div>
-        <div class="grid">
-          <article class="card service">
-            <h3>Backend APIs</h3>
-            <p>Django/DRF and FastAPI services with authentication, relational models, validation, permissions, pagination and clean API boundaries.</p>
+
+        <div class="grid-12">
+          <article class="card capability">
+            <span class="capability-num mono">01</span>
+            <h3>Backend systems</h3>
+            <p>Django/DRF and FastAPI services with authentication, permissions, relational models, validation, pagination and clear API contracts.</p>
           </article>
-          <article class="card service">
-            <h3>CRM workflows</h3>
-            <p>Business-oriented backend logic for users, entities, statuses, actions, notes, search, moderation and structured data flows.</p>
+
+          <article class="card capability">
+            <span class="capability-num mono">02</span>
+            <h3>Business workflows</h3>
+            <p>CRM/ERP logic for roles, statuses, orders, schedules, notes, moderation, operator workflows and structured business processes.</p>
           </article>
-          <article class="card service">
-            <h3>Telegram bots</h3>
-            <p>aiogram bots with command flows, inline keyboards, admin controls, background tasks, external API integrations and notifications.</p>
+
+          <article class="card capability">
+            <span class="capability-num mono">03</span>
+            <h3>Integrations</h3>
+            <p>Telegram, Google Sheets, CRM services, payment systems, webhooks and third-party APIs with logging and failure handling.</p>
           </article>
-          <article class="card service">
+
+          <article class="card capability">
+            <span class="capability-num mono">04</span>
             <h3>AI automation</h3>
-            <p>Tools that connect LLMs with files, Telegram, content generation, subtitles, TTS, vector search and local/OpenAI-compatible endpoints.</p>
+            <p>RAG, document processing, local or cloud LLM endpoints, transcription, content pipelines and AI-assisted internal tools.</p>
+          </article>
+
+          <article class="card capability">
+            <span class="capability-num mono">05</span>
+            <h3>Bots and automation</h3>
+            <p>aiogram bots, background jobs, browser automation, parsers, notifications, scheduled tasks and repeatable operational flows.</p>
+          </article>
+
+          <article class="card capability">
+            <span class="capability-num mono">06</span>
+            <h3>Deployment and support</h3>
+            <p>Docker Compose, Linux VPS, Nginx, Gunicorn, systemd, environment configuration, logs, debugging and production maintenance.</p>
           </article>
         </div>
       </div>
@@ -690,199 +1123,279 @@
 
     <section id="experience">
       <div class="wrap">
-        <div class="section-title">
-          <h2>Practical experience</h2>
-          <p>Commercial backend work plus a large set of personal projects in automation, bots, AI tools, desktop apps and Android.</p>
+        <div class="section-head">
+          <div>
+            <span class="section-index mono">02 / Experience</span>
+            <h2>Commercial background</h2>
+          </div>
+          <p>
+            My main commercial experience is a CRM/ERP platform for a call center, where I worked with backend logic,
+            integrations, task automation and production support.
+          </p>
         </div>
-        <div class="timeline">
-          <article class="card timeline-card">
-            <div>
-              <div class="period">Commercial projects · Remote</div>
-              <div class="meta">Python Developer · 1+ year</div>
-            </div>
-            <div>
-              <h3>Backend, CRM logic and automation tools</h3>
-              <p>Worked on practical Python tasks focused on backend logic, REST APIs, business workflows and automation.</p>
-              <ul>
-                <li>Developed Django/DRF backend functionality with authentication, relational models and REST API endpoints.</li>
-                <li>Implemented CRM-style business logic, validation, permissions and structured entity management.</li>
-                <li>Built Telegram bots for notifications, data collection, automation flows and structured message handling.</li>
-                <li>Created PyQt desktop utilities for file processing, workflow automation and internal tooling.</li>
-              </ul>
-            </div>
-          </article>
 
-          <article class="card timeline-card">
-            <div>
-              <div class="period">Personal projects</div>
-              <div class="meta">Python practice · 4+ years</div>
+        <article class="card experience-card">
+          <div class="experience-side">
+            <strong>Python Backend Developer</strong>
+            <p>Remote commercial projects</p>
+            <p>1+ year</p>
+          </div>
+
+          <div class="experience-main">
+            <h3>CRM/ERP platform and business automation</h3>
+            <p>
+              Developed backend functionality for a multi-role call-center system with a React frontend and a Django/DRF backend.
+              The project included operational modules, role-based access, order processing, staff workflows and external services.
+            </p>
+
+            <div class="detail-columns">
+              <div class="detail-box">
+                <h4 class="mono">Backend & domain logic</h4>
+                <ul class="list">
+                  <li>Implemented REST API endpoints, serializers, validation, authentication and permission rules.</li>
+                  <li>Worked with modules for operators, supervisors and managers.</li>
+                  <li>Developed workflows for schedules, orders, statuses, scripts, notes and role-based access.</li>
+                  <li>Maintained relational data models and PostgreSQL-backed business logic.</li>
+                </ul>
+              </div>
+
+              <div class="detail-box">
+                <h4 class="mono">Automation & production</h4>
+                <ul class="list">
+                  <li>Integrated LP-CRM, Google Sheets and Telegram bots.</li>
+                  <li>Used Celery and RabbitMQ for background and asynchronous work.</li>
+                  <li>Built bots for HR, surveys, training, notifications and internal operations.</li>
+                  <li>Supported deployment and runtime on a Linux VPS with Nginx and systemd.</li>
+                </ul>
+              </div>
             </div>
-            <div>
-              <h3>Bots, parsers, desktop apps, Android and AI workflows</h3>
-              <p>Built and experimented with different Python project types, from backend services to media and AI automation.</p>
-              <ul>
-                <li>Developed Telegram bots, parsers, automation scripts, data-processing utilities and GUI applications.</li>
-                <li>Worked with Kivy/KivyMD, Buildozer, Cython, Pyjnius, Android MediaPlayer API, yt-dlp and FFmpeg.</li>
-                <li>Created AI-related projects around RAG, content generation, subtitles, voiceover and local/OpenAI-compatible LLM usage.</li>
-              </ul>
+
+            <div class="tags" style="margin-top: 22px;">
+              <span class="tag">Python</span>
+              <span class="tag">Django</span>
+              <span class="tag">DRF</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Celery</span>
+              <span class="tag">RabbitMQ</span>
+              <span class="tag">JWT</span>
+              <span class="tag">Google Sheets API</span>
+              <span class="tag">Telegram Bot API</span>
+              <span class="tag">Nginx</span>
             </div>
-          </article>
-        </div>
+          </div>
+        </article>
       </div>
     </section>
 
     <section id="projects">
       <div class="wrap">
-        <div class="section-title">
-          <h2>Featured projects</h2>
-          <p>Each project is written as a portfolio case: purpose, implemented features, role and technology stack.</p>
+        <div class="section-head">
+          <div>
+            <span class="section-index mono">03 / Projects</span>
+            <h2>Selected engineering work</h2>
+          </div>
+          <p>
+            A mix of backend, AI, automation, desktop and Java projects. Commercial and private work is described without exposing confidential code or data.
+          </p>
         </div>
 
-        <div class="grid">
-          <article class="card project wide">
+        <div class="grid-12">
+          <article class="card project featured">
             <div class="project-head">
               <div>
                 <h3>AI Knowledge Assistant</h3>
-                <div class="meta">Production-oriented RAG backend for document Q&A</div>
+                <p class="project-subtitle mono">Document Q&A backend · RAG · Workspace isolation</p>
               </div>
-              <span class="badge ai">AI / RAG</span>
+              <span class="badge">AI Backend</span>
             </div>
+
             <p>
-              A FastAPI-based assistant that accepts documents, extracts text, splits it into chunks,
-              stores embeddings and answers questions using a local or OpenAI-compatible LLM endpoint.
+              A production-oriented FastAPI service that accepts documents, extracts and chunks content,
+              stores embeddings and answers questions through a local or OpenAI-compatible language model endpoint.
             </p>
-            <div class="detail-grid">
+
+            <div class="project-grid">
               <div class="detail-box">
-                <h4>Implemented</h4>
-                <ul class="compact-list">
+                <h4 class="mono">Implemented</h4>
+                <ul class="list">
                   <li>PDF, DOCX and TXT ingestion with content-based validation.</li>
-                  <li>Chunking, local multilingual embeddings and PostgreSQL + pgvector storage.</li>
-                  <li>RAG chat endpoint with source labels, metadata and page numbers.</li>
-                  <li>Redis-backed rate limiting, API keys, workspace isolation and Telegram bot allow-list.</li>
+                  <li>Multilingual embeddings and PostgreSQL + pgvector storage.</li>
+                  <li>Answers with source labels, metadata and page references.</li>
+                  <li>API keys, rate limiting, workspace isolation and Telegram access controls.</li>
                 </ul>
               </div>
+
               <div class="detail-box">
-                <h4>My role</h4>
-                <ul class="compact-list">
-                  <li>Designed backend architecture, API routes, services and database models.</li>
-                  <li>Prepared Docker Compose environment, Alembic migrations and tests.</li>
-                  <li>Added support for local LLM servers and cloud/OpenAI-compatible endpoints.</li>
+                <h4 class="mono">Engineering</h4>
+                <ul class="list">
+                  <li>Designed API routes, services, models and RAG pipeline boundaries.</li>
+                  <li>Prepared Docker Compose, Redis integration and Alembic migrations.</li>
+                  <li>Supported local Ollama/llama.cpp and cloud-compatible endpoints.</li>
+                  <li>Added error handling, configuration validation and testable components.</li>
                 </ul>
               </div>
             </div>
+
             <div class="tags">
-              <span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">pgvector</span><span class="tag">Redis</span><span class="tag">Docker</span><span class="tag">RAG</span><span class="tag">Telegram Bot</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">pgvector</span>
+              <span class="tag">Redis</span>
+              <span class="tag">Docker</span>
+              <span class="tag">RAG</span>
+              <span class="tag">Embeddings</span>
+              <span class="tag">Ollama</span>
             </div>
           </article>
 
           <article class="card project">
             <div class="project-head">
               <div>
-                <h3>AI Content Factory Bot</h3>
-                <div class="meta">Telegram pipeline for short-form video generation</div>
+                <h3>AI Video Automation Pipeline</h3>
+                <p class="project-subtitle mono">Browser automation · Media processing</p>
               </div>
-              <span class="badge ai">AI Content</span>
+              <span class="badge">Automation</span>
             </div>
+
             <p>
-              Telegram bot that turns a topic or script into vertical MP4 videos. The pipeline structures the script,
-              prepares voiceover text, generates subtitles and renders the result through FFmpeg.
+              A workflow that generates visual assets and clips, tracks generation states and assembles final videos.
+              The focus is repeatable execution, provider abstraction, retries and local rendering.
             </p>
-            <ul>
-              <li>Implemented single-video mode and factory mode for multiple variants.</li>
-              <li>Added batch tracking, render commands, status checks and Telegram controls.</li>
-              <li>Prepared output structure for audio, subtitles, backgrounds and rendered videos.</li>
+
+            <ul class="list">
+              <li>Automated web workflows with Playwright and reusable browser sessions.</li>
+              <li>Added retries, fallback logic, structured logs and status tracking.</li>
+              <li>Processed audio, subtitles, images and video through FFmpeg.</li>
+              <li>Prepared one-command local execution for repeatable generation runs.</li>
             </ul>
+
             <div class="tags">
-              <span class="tag">Python</span><span class="tag">aiogram</span><span class="tag">FFmpeg</span><span class="tag">TTS</span><span class="tag">ASS Subtitles</span>
+              <span class="tag">Python</span>
+              <span class="tag">Playwright</span>
+              <span class="tag">FFmpeg</span>
+              <span class="tag">Automation</span>
+              <span class="tag">Logging</span>
             </div>
           </article>
 
           <article class="card project">
             <div class="project-head">
               <div>
-                <h3>CRM & Workflow Automation Backend</h3>
-                <div class="meta">Private/commercial backend work</div>
+                <h3>Real-time Subtitle & Translation Overlay</h3>
+                <p class="project-subtitle mono">Desktop AI utility · STT</p>
               </div>
-              <span class="badge">CRM</span>
+              <span class="badge">Desktop AI</span>
             </div>
+
             <p>
-              Backend work focused on CRM-style logic: business entities, actions, statuses, validation,
-              permissions, user flows and integration-ready API structure.
+              A transparent always-on-top desktop overlay that captures speech, transcribes it and displays bilingual subtitles for meetings and learning.
             </p>
-            <ul>
-              <li>Designed data flows around users, records, statuses and routine operations.</li>
-              <li>Implemented REST API logic, authentication flows, serializers and permission checks.</li>
-              <li>Worked with relational data modeling, Redis/Celery workflows and Dockerized services.</li>
+
+            <ul class="list">
+              <li>Microphone and system-audio capture with streaming transcription.</li>
+              <li>English and Ukrainian overlay text with configurable layout.</li>
+              <li>Window transparency, resize behavior, hotkeys and saved settings.</li>
+              <li>Local Whisper-based processing for privacy-oriented usage.</li>
             </ul>
+
             <div class="tags">
-              <span class="tag">Django</span><span class="tag">DRF</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">Celery</span><span class="tag">Docker</span>
+              <span class="tag">Python</span>
+              <span class="tag">Whisper</span>
+              <span class="tag">PyQt</span>
+              <span class="tag">Audio Capture</span>
+              <span class="tag">Desktop GUI</span>
             </div>
           </article>
 
           <article class="card project">
             <div class="project-head">
               <div>
-                <h3>Dockerized Django REST API Backend</h3>
-                <div class="meta">REST API, auth, permissions and Docker stack</div>
-              </div>
-              <span class="badge api">Backend</span>
-            </div>
-            <p>
-              Django/DRF backend with content entities, categories, tags, comments, user profiles,
-              reactions, cached search and API endpoints.
-            </p>
-            <ul>
-              <li>Built CRUD endpoints, JWT/Token authentication, pagination and custom permissions.</li>
-              <li>Used relational models: users, profiles, categories, tags, posts, comments and reactions.</li>
-              <li>Prepared Docker Compose runtime with Redis, Celery, database services, Gunicorn and Nginx.</li>
-            </ul>
-            <a class="project-link" href="https://github.com/KoTeuKa404/django">View repository →</a>
-            <div class="tags">
-              <span class="tag">Django</span><span class="tag">DRF</span><span class="tag">JWT</span><span class="tag">Redis</span><span class="tag">Celery</span><span class="tag">Docker</span>
-            </div>
-          </article>
-
-          <article class="card project">
-            <div class="project-head">
-              <div>
-                <h3>Telegram Automation Bots</h3>
-                <div class="meta">Bots for workflows, notifications and data delivery</div>
+                <h3>Telegram Automation Systems</h3>
+                <p class="project-subtitle mono">Bots · Notifications · Internal workflows</p>
               </div>
               <span class="badge">Bots</span>
             </div>
+
             <p>
-              A group of Telegram bot projects for automation: command flows, inline keyboards,
-              admin controls, scheduled/background work, external API calls and structured responses.
+              A set of bots for notifications, surveys, training, structured data collection, content workflows and integration-driven operations.
             </p>
-            <ul>
-              <li>Implemented aiogram command handlers, finite-state flows and inline buttons.</li>
-              <li>Connected bots with external services, parsers, files, queues and background tasks.</li>
-              <li>Prepared environment-based configuration and Docker-friendly runtime structure.</li>
+
+            <ul class="list">
+              <li>Command handlers, finite-state flows, inline keyboards and admin functions.</li>
+              <li>Background tasks, queues, scheduled jobs and external API calls.</li>
+              <li>Environment-based configuration, logging and Docker-friendly structure.</li>
+              <li>Integration with CRM data, files, parsers and business notifications.</li>
             </ul>
+
             <div class="tags">
-              <span class="tag">aiogram</span><span class="tag">Telegram Bot API</span><span class="tag">aiohttp</span><span class="tag">SQLite</span><span class="tag">Docker</span>
+              <span class="tag">aiogram</span>
+              <span class="tag">Telegram Bot API</span>
+              <span class="tag">aiohttp</span>
+              <span class="tag">Celery</span>
+              <span class="tag">Redis</span>
             </div>
           </article>
 
           <article class="card project">
             <div class="project-head">
               <div>
-                <h3>CSV / Excel Cleaner GUI</h3>
-                <div class="meta">Desktop utility for file cleaning and reporting</div>
+                <h3>Thaumic Forever</h3>
+                <p class="project-subtitle mono">Large Minecraft Forge mod</p>
               </div>
-              <span class="badge api">Desktop</span>
+              <span class="badge">Java</span>
             </div>
+
             <p>
-              One-click PyQt6 tool for selecting, cleaning, filtering, merging and exporting CSV/XLSX files.
-              Built for safe local processing and repeatable workflows.
+              A large content and systems mod for Minecraft 1.12.2 and Thaumcraft 6, with custom mechanics, entities, GUIs, research, integrations and compatibility work.
             </p>
-            <ul>
-              <li>Added whitespace cleanup, missing-value normalization, header normalization and duplicate removal.</li>
-              <li>Implemented column filters, Excel report export, logs, settings persistence and safe cancellation.</li>
-              <li>Protected source files from modification and exported untrusted formulas as text.</li>
+
+            <ul class="list">
+              <li>Custom blocks, items, machines, combat systems, traders and world content.</li>
+              <li>Complex Forge event handling, rendering, networking and capability logic.</li>
+              <li>Runtime integrations with other mods and configurable compatibility features.</li>
+              <li>Debugging of client/server crashes, performance issues and mod interactions.</li>
             </ul>
+
+            <a class="project-link" href="https://github.com/KoTeuKa404/thaumicforever" target="_blank" rel="noopener noreferrer">View repository →</a>
+
             <div class="tags">
-              <span class="tag">Python</span><span class="tag">PyQt6</span><span class="tag">CSV</span><span class="tag">XLSX</span><span class="tag">GUI</span><span class="tag">File Processing</span>
+              <span class="tag">Java 8</span>
+              <span class="tag">Minecraft Forge</span>
+              <span class="tag">Gradle</span>
+              <span class="tag">OpenGL Rendering</span>
+              <span class="tag">Game Systems</span>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="project-head">
+              <div>
+                <h3>Dockerized Django REST API</h3>
+                <p class="project-subtitle mono">Backend API · Authentication · Containers</p>
+              </div>
+              <span class="badge">Backend</span>
+            </div>
+
+            <p>
+              A Django/DRF backend with content entities, categories, tags, comments, user profiles, reactions, cached search and production-oriented services.
+            </p>
+
+            <ul class="list">
+              <li>CRUD endpoints, JWT authentication, pagination and custom permissions.</li>
+              <li>Relational models for users, profiles, categories, posts and reactions.</li>
+              <li>Redis and Celery integration for caching and background operations.</li>
+              <li>Docker Compose runtime with database, Gunicorn and Nginx.</li>
+            </ul>
+
+            <a class="project-link" href="https://github.com/KoTeuKa404/django" target="_blank" rel="noopener noreferrer">View repository →</a>
+
+            <div class="tags">
+              <span class="tag">Django</span>
+              <span class="tag">DRF</span>
+              <span class="tag">JWT</span>
+              <span class="tag">Redis</span>
+              <span class="tag">Celery</span>
+              <span class="tag">Docker</span>
             </div>
           </article>
 
@@ -890,144 +1403,110 @@
             <div class="project-head">
               <div>
                 <h3>PyMusic Android Application</h3>
-                <div class="meta">Python-based Android media app</div>
+                <p class="project-subtitle mono">Python mobile media app</p>
               </div>
-              <span class="badge api">Android</span>
+              <span class="badge">Android</span>
             </div>
+
             <p>
-              Android music/video application built with Python UI screens, playback controls,
-              stream handling, thumbnails, background playback experiments and mobile debugging workflow.
+              An Android music and video application built with Python, including playback controls, stream handling, thumbnails and mobile integration work.
             </p>
-            <ul>
-              <li>Worked with Kivy/KivyMD screens, Buildozer packaging and Android integration.</li>
-              <li>Integrated Android MediaPlayer API, Pyjnius, stream handling, yt-dlp and FFmpeg experiments.</li>
-              <li>Debugged mobile playback, notifications, UI controls and background behavior.</li>
+
+            <ul class="list">
+              <li>Kivy/KivyMD UI screens and Buildozer packaging.</li>
+              <li>Android MediaPlayer integration through Pyjnius.</li>
+              <li>yt-dlp and FFmpeg experiments for media workflows.</li>
+              <li>Debugging of playback, notifications and background behavior.</li>
             </ul>
-            <a class="project-link" href="https://github.com/KoTeuKa404/pymusic">View repository →</a>
+
+            <a class="project-link" href="https://github.com/KoTeuKa404/pymusic" target="_blank" rel="noopener noreferrer">View repository →</a>
+
             <div class="tags">
-              <span class="tag">Python</span><span class="tag">Kivy</span><span class="tag">Buildozer</span><span class="tag">Pyjnius</span><span class="tag">FFmpeg</span><span class="tag">Android</span>
+              <span class="tag">Python</span>
+              <span class="tag">Kivy</span>
+              <span class="tag">Buildozer</span>
+              <span class="tag">Pyjnius</span>
+              <span class="tag">FFmpeg</span>
             </div>
           </article>
         </div>
-      </div>
-    </section>
-
-    <section id="catalog">
-      <div class="wrap">
-        <div class="section-title">
-          <h2>Project catalog</h2>
-          <p>Compact overview of additional work. Some projects are private or local archive projects, so the description focuses on the implemented logic.</p>
-        </div>
-        <table class="catalog">
-          <thead>
-            <tr>
-              <th>Project</th>
-              <th>Type</th>
-              <th>What it demonstrates</th>
-              <th>Stack</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>AI Knowledge Assistant</td>
-              <td>AI backend</td>
-              <td>Document ingestion, RAG, vector search, rate limiting, Telegram integration</td>
-              <td>FastAPI, PostgreSQL, pgvector, Redis, Docker</td>
-            </tr>
-            <tr>
-              <td>AI Content Factory Bot</td>
-              <td>Automation bot</td>
-              <td>Script generation, subtitles, voiceover pipeline and MP4 rendering</td>
-              <td>Python, aiogram, FFmpeg, TTS</td>
-            </tr>
-            <tr>
-              <td>Telegram Content Automation Bot</td>
-              <td>Content workflow</td>
-              <td>Ideas, post generation, approval queue and channel publishing flow</td>
-              <td>Python, Telegram Bot API, SQLite, LLM API</td>
-            </tr>
-            <tr>
-              <td>Django REST API Backend</td>
-              <td>Backend API</td>
-              <td>CRUD, auth, permissions, relational models, pagination, cached search</td>
-              <td>Django, DRF, JWT, Redis, Celery, Docker</td>
-            </tr>
-            <tr>
-              <td>Audio Subtitle Overlay</td>
-              <td>Desktop AI tool</td>
-              <td>Real-time subtitles from microphone/system audio with transparent overlay</td>
-              <td>Python, audio capture, transcription, GUI overlay</td>
-            </tr>
-            <tr>
-              <td>CSV / Excel Cleaner</td>
-              <td>Desktop utility</td>
-              <td>Safe data cleaning, filtering, export, logs and background processing</td>
-              <td>Python, PyQt6, CSV, XLSX</td>
-            </tr>
-            <tr>
-              <td>PyMusic</td>
-              <td>Android app</td>
-              <td>Media playback, stream handling, Android integration and packaging</td>
-              <td>Kivy, Buildozer, Pyjnius, FFmpeg</td>
-            </tr>
-            <tr>
-              <td>Custom Python Applications</td>
-              <td>Tools</td>
-              <td>Small GUI apps, converters, scripts, file processing and automation utilities</td>
-              <td>Python, PyQt, multiprocessing, PyInstaller</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </section>
 
     <section id="skills">
       <div class="wrap">
-        <div class="section-title">
-          <h2>Technical skills</h2>
-          <p>Grouped by the kind of work I can do in a project.</p>
+        <div class="section-head">
+          <div>
+            <span class="section-index mono">04 / Stack</span>
+            <h2>Technical stack</h2>
+          </div>
+          <p>
+            Technologies are grouped by practical use. My strongest area is Python backend development with automation and integrations around it.
+          </p>
         </div>
-        <div class="skills-grid">
-          <article class="card skill-box">
-            <h3>Backend</h3>
-            <p>API development, data models, auth, permissions and business logic.</p>
-            <div class="skill-pills">
-              <span>Python</span><span>Django</span><span>Django REST Framework</span><span>FastAPI</span><span>REST APIs</span><span>JWT</span><span>Djoser</span><span>Serializers</span><span>Pagination</span>
+
+        <div class="skills">
+          <article class="card skill-group">
+            <h3>Backend & APIs</h3>
+            <p>Business logic, authentication, validation and service architecture.</p>
+            <div class="skill-list">
+              <span>Python</span><span>Django</span><span>Django REST Framework</span><span>FastAPI</span><span>REST APIs</span><span>JWT</span><span>Djoser</span><span>Webhooks</span><span>OpenAPI</span>
             </div>
           </article>
-          <article class="card skill-box">
-            <h3>Databases & DevOps</h3>
-            <p>Relational modeling, containers, services and deployment basics.</p>
-            <div class="skill-pills">
-              <span>PostgreSQL</span><span>MySQL</span><span>SQLite</span><span>Django ORM</span><span>Docker</span><span>Docker Compose</span><span>Redis</span><span>Celery</span><span>Nginx</span><span>Gunicorn</span><span>Linux basics</span>
+
+          <article class="card skill-group">
+            <h3>Data & async processing</h3>
+            <p>Relational storage, caching, queues and background work.</p>
+            <div class="skill-list">
+              <span>PostgreSQL</span><span>MySQL</span><span>SQLite</span><span>Django ORM</span><span>pgvector</span><span>Redis</span><span>Celery</span><span>RabbitMQ</span><span>Alembic</span>
             </div>
           </article>
-          <article class="card skill-box">
-            <h3>Automation & Bots</h3>
-            <p>Data collection, messaging flows, background jobs and integrations.</p>
-            <div class="skill-pills">
-              <span>aiogram</span><span>Telegram Bot API</span><span>Selenium</span><span>Playwright</span><span>BeautifulSoup4</span><span>requests</span><span>aiohttp</span><span>CSV/JSON</span><span>Regex</span>
+
+          <article class="card skill-group">
+            <h3>Automation & integrations</h3>
+            <p>Bots, browser automation, data collection and third-party services.</p>
+            <div class="skill-list">
+              <span>aiogram</span><span>Telegram Bot API</span><span>Playwright</span><span>Selenium</span><span>BeautifulSoup4</span><span>requests</span><span>aiohttp</span><span>Google Sheets API</span><span>LP-CRM</span><span>n8n basics</span>
             </div>
           </article>
-          <article class="card skill-box">
-            <h3>AI workflows</h3>
-            <p>Practical LLM integrations for documents, Telegram and content pipelines.</p>
-            <div class="skill-pills">
-              <span>OpenAI-compatible APIs</span><span>Local LLM endpoints</span><span>RAG</span><span>Embeddings</span><span>pgvector</span><span>Prompt design</span><span>Document processing</span>
+
+          <article class="card skill-group">
+            <h3>Applied AI</h3>
+            <p>LLM integrations, retrieval, transcription and content tooling.</p>
+            <div class="skill-list">
+              <span>OpenAI-compatible APIs</span><span>Gemini API</span><span>Ollama</span><span>llama.cpp</span><span>RAG</span><span>Embeddings</span><span>Vector Search</span><span>Whisper</span><span>Prompt Design</span><span>Document Processing</span>
             </div>
           </article>
-          <article class="card skill-box">
-            <h3>Desktop / Mobile</h3>
-            <p>GUI tools, Android experiments and media-related utilities.</p>
-            <div class="skill-pills">
-              <span>PyQt6</span><span>Kivy</span><span>KivyMD</span><span>Buildozer</span><span>Cython</span><span>Pyjnius</span><span>Android MediaPlayer API</span><span>FFmpeg</span><span>yt-dlp</span>
+
+          <article class="card skill-group">
+            <h3>DevOps & delivery</h3>
+            <p>Containerized development and practical Linux deployment.</p>
+            <div class="skill-list">
+              <span>Docker</span><span>Docker Compose</span><span>Linux</span><span>Nginx</span><span>Gunicorn</span><span>systemd</span><span>Environment Configuration</span><span>GitHub</span><span>VPS Deployment</span><span>Logging</span>
             </div>
           </article>
-          <article class="card skill-box">
-            <h3>Workflow</h3>
-            <p>Readable code, debugging, practical architecture and business-first implementation.</p>
-            <div class="skill-pills">
-              <span>Git</span><span>GitHub</span><span>Postman</span><span>Environment configs</span><span>Validation</span><span>Error handling</span><span>Logging</span><span>Testing basics</span>
+
+          <article class="card skill-group">
+            <h3>Desktop, mobile & media</h3>
+            <p>Local utilities, overlays, mobile experiments and media pipelines.</p>
+            <div class="skill-list">
+              <span>PyQt6</span><span>Kivy</span><span>KivyMD</span><span>Buildozer</span><span>Pyjnius</span><span>FFmpeg</span><span>yt-dlp</span><span>Audio Processing</span><span>CSV/XLSX</span><span>PyInstaller</span>
+            </div>
+          </article>
+
+          <article class="card skill-group">
+            <h3>Engineering workflow</h3>
+            <p>Maintainability, debugging and safe implementation practices.</p>
+            <div class="skill-list">
+              <span>Git</span><span>GitHub</span><span>Postman</span><span>Validation</span><span>Error Handling</span><span>Testing Basics</span><span>Secure Configuration</span><span>Code Review</span><span>Debugging</span><span>Documentation</span>
+            </div>
+          </article>
+
+          <article class="card skill-group">
+            <h3>Additional engineering</h3>
+            <p>Game modding and lower-level integration experience.</p>
+            <div class="skill-list">
+              <span>Java 8</span><span>Minecraft Forge 1.12.2</span><span>Gradle</span><span>Forge Events</span><span>Client/Server Logic</span><span>Rendering</span><span>JSON Models</span><span>Compatibility Debugging</span>
             </div>
           </article>
         </div>
@@ -1036,25 +1515,33 @@
 
     <section id="education">
       <div class="wrap">
-        <div class="section-title">
-          <h2>Education & languages</h2>
-          <p>Academic background and communication languages.</p>
+        <div class="section-head">
+          <div>
+            <span class="section-index mono">05 / Education</span>
+            <h2>Education & languages</h2>
+          </div>
+          <p>
+            University studies in cybersecurity complement my practical experience with backend systems, networks, deployment and secure data handling.
+          </p>
         </div>
-        <div class="grid">
-          <article class="card edu-card" style="grid-column: span 8;">
+
+        <div class="education">
+          <article class="card education-card">
             <h3>Lviv Polytechnic National University</h3>
-            <p>2023 — Present · Speciality 125 — Cybersecurity and Information Protection · Expected graduation: 2027.</p>
-            <ul class="compact-list">
-              <li>Relevant areas: programming, databases, computer networks, backend logic and information security fundamentals.</li>
-              <li>Practical focus outside university: Python backend, automation, bots, AI tools and Dockerized services.</li>
-            </ul>
+            <p>
+              Bachelor’s degree in Cybersecurity and Information Protection, speciality 125.
+              Third-year student, expected graduation in 2027.
+            </p>
+            <div class="education-meta mono">
+              <span>Relevant areas: programming · databases · computer networks · information security</span>
+              <span>Practical focus: backend · automation · AI tools · production services</span>
+            </div>
           </article>
-          <article class="card edu-card" style="grid-column: span 4;">
+
+          <article class="card education-card">
             <h3>Languages</h3>
-            <ul class="compact-list">
-              <li>Ukrainian — native</li>
-              <li>English — B1 speaking, actively improving</li>
-            </ul>
+            <p>Ukrainian — native</p>
+            <p>English — B1, actively improving through technical and professional practice</p>
           </article>
         </div>
       </div>
@@ -1062,34 +1549,36 @@
 
     <section id="contact">
       <div class="wrap">
-        <div class="section-title">
-          <h2>Contact</h2>
-          <p>Open to remote backend, automation, Telegram bot and AI workflow tasks.</p>
+        <div class="card contact-panel">
+          <div>
+            <span class="section-index mono">06 / Contact</span>
+            <h2>Let’s build something useful.</h2>
+            <p>
+              Open to full-time remote roles and project work in Python backend, CRM/ERP systems,
+              Telegram bots, integrations, AI automation and internal business tools.
+            </p>
+          </div>
+
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:maxgadada@gmail.com">
+              <span>Email</span><span>↗</span>
+            </a>
+            <a class="contact-link" href="https://t.me/KoTeuKa404" target="_blank" rel="noopener noreferrer">
+              <span>Telegram</span><span>↗</span>
+            </a>
+            <a class="contact-link" href="https://github.com/KoTeuKa404" target="_blank" rel="noopener noreferrer">
+              <span>GitHub</span><span>↗</span>
+            </a>
+          </div>
         </div>
-        <div class="contact-grid">
-          <a class="contact-card" href="mailto:maxgadada@gmail.com">
-            <strong>Email</strong>
-            <span>maxgadada@gmail.com</span>
-          </a>
-          <a class="contact-card" href="https://t.me/KoTeuKa404">
-            <strong>Telegram</strong>
-            <span>@KoTeuKa404</span>
-          </a>
-          <a class="contact-card" href="https://github.com/KoTeuKa404">
-            <strong>GitHub</strong>
-            <span>github.com/KoTeuKa404</span>
-          </a>
-        </div>
-        <p class="note" style="margin-top: 18px;">
-          CV PDF can be added to this repository later as <code>Max_Gadada_Resume.pdf</code> and linked from the hero section.
-        </p>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="wrap">
-      © 2026 Max Gadada. Built as a static GitHub Pages portfolio.
+  <footer>
+    <div class="wrap footer-row">
+      <span>© 2026 Max Gadada</span>
+      <span class="mono">Python Backend · Automation · Applied AI</span>
     </div>
   </footer>
 </body>
